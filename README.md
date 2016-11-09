@@ -1,8 +1,6 @@
 # msrp-csharp
 Open source peer library for the Message Session Relay Protocol (MSRP, RFC 4975) in C#
 
-Introduction
-
 This project's goal is to develop an open source peer library for the Message Session Relay Protocol (MSRP: RFC 4975, and relay extensions: RFC 4976) for usage in .Net projects written entirely in C#, flexible enough that it can be used by any application.
 
 The Library is a port of the Java MSRP Library, maintained by Tom Uijldert and its founder João Antunes.
