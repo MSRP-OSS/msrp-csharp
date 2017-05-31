@@ -459,7 +459,8 @@ namespace MSRP
         public void GotAborted(Transaction transaction)
         {
             _aborted = true;
-            if (_dataContainer != null) { _dataContainer.Dispose(); }
+            Discard();
+
             Session.FireMessageAbortedEvent(this, MessageAbortedEvent.CONTINUATIONFLAG, null, transaction);
         }
 
@@ -484,7 +485,11 @@ namespace MSRP
         /// </summary>
         public void Discard()
         {
-            if (DataContainer != null) { DataContainer.Dispose(); }
+            if (DataContainer != null)
+            {
+                DataContainer.Dispose();
+                DataContainer = null;
+            }
         }
     }
 }
