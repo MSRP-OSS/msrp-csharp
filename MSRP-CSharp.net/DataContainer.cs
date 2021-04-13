@@ -222,9 +222,9 @@ namespace MSRP
         ///          content;</returns>
         virtual public byte[] Get(long offsetIndex, long size)
         {
-            if (size == 0) { size = _dataStream.Length - offsetIndex; }
+            if (size == 0 || size < 0) { size = _dataStream.Length - offsetIndex; }
 
-            if (size < 0 || offsetIndex < 0) { throw new IllegalUseException("negative size or offsetindex"); }
+            if (offsetIndex < 0) { throw new IllegalUseException("negative size or offsetindex"); }
 
             if (_dataStream.Length < (offsetIndex + size)) { throw new NotEnoughDataException(); }
 
