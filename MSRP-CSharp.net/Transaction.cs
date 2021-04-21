@@ -717,6 +717,8 @@ namespace MSRP
                         // 
                         // TODO validate byteRange values for non negatives etc
                         long start = (_byteRange[CHUNKSTARTBYTEINDEX] - 1) + _realChunkSize;
+                        if (start < 0) { start = 0; }
+
                         int blockSize = Message.ReportMechanism.GetTriggerGranularity();
                         data = new byte[blockSize];
                         int size2Copy = blockSize;
